@@ -28,8 +28,9 @@ public class OrderRepository {
     }
 
     public List<String> getProducts(String customerName) {
+        String sql = read("getProductsByCustomerName.sql");
         return jdbcTemplate.queryForList(
-                read("getProductsByCustomerName.sql"),
+                sql,
                 String.class,
                 customerName);
     }

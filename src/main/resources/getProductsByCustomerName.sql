@@ -1,4 +1,8 @@
-SELECT O.product_name
-FROM ORDERS AS O
-JOIN CUSTOMERS AS C ON O.customer_id = C.id
-WHERE LOWER(C.name) = ?;
+select
+	o.product_name
+from
+	orders as o
+join customers as c on
+	o.customer_id = c.id
+where
+	LOWER(c.name) = LOWER(?);

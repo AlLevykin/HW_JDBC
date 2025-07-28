@@ -1,10 +1,7 @@
 package ru.netology.hw_jdbc.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import ru.netology.hw_jdbc.service.OrderService;
 
 import java.util.List;
@@ -15,8 +12,8 @@ import java.util.List;
 public class OrderController {
     private final OrderService orderService;
 
-    @GetMapping("/fetch-products")
-    public List<String> getProducts(@PathVariable String name) {
-        return orderService.getProducts(name);
+    @GetMapping("/fetch-product")
+    public List<String> getProducts(@RequestParam("name") String customerName) {
+        return orderService.getProducts(customerName);
     }
 }
